@@ -7,7 +7,7 @@
  * @icon cloud-download-icon.png
  * @mini magic 
  * @see construct 
- * @link themes/ashley
+ * @link themes
  * @todo
  * @alpha
  */
@@ -16,18 +16,9 @@
 
     function index(){
       return [
-        'some_text' => 'some value'
-      ];
-
-    }
-
-    function ashley($name,$name2){
-
-      return [
-        'name' => $name,
-        'name2' => $name2
       ];
     }
+
 
     /**
       @name htmlSheet 
