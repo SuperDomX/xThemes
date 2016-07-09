@@ -5,7 +5,7 @@
  * @version v0.0
  * @author @xopherdeep
  * @icon cloud-download-icon.png
- * @mini magic 
+ * @mini moon-o 
  * @see construct 
  * @link themes
  * @todo
@@ -13,7 +13,6 @@
  */
 
   class xThemes extends Xengine{
-
     function index(){
       return [
       ];
