@@ -20,17 +20,28 @@
     }
 
     function readThemes($filter=null){
-      $dir = DOC_ROOT . $this->_CFG['dir']['html']."/themes/";
-      $data  = scandir(
-        $dir
-      );
+      $super_nexus     = parse_url($this->_SET['CONFIG']['super_nexus']);
+      $this_nexus      = parse_url($_SERVER['HTTP_HOST']);
+      $is_super_nexus  = ($this_nexus['host'] == $super_nexus['host']);
 
-      foreach($data as $k => $v){
-        if ($v == '.'|| $v == '..')
-          unset($data[$k]);
+      if($is_super_nexus){
+        $dir = DOC_ROOT . $this->_CFG['dir']['html']."/themes/";
+        $data  = scandir(
+          $dir
+        );
 
-        if(!is_dir($dir.$v))
-          unset($data[$k]);
+        foreach($data as $k => $v){
+          if ($v == '.'|| $v == '..')
+            unset($data[$k]);
+
+          if(!is_dir($dir.$v))
+            unset($data[$k]);
+        }
+      }else{
+        $url = "http://{$super_nexus['host']}/themes/readThemes/.json";
+        $string = file_get_contents($url);
+        $data   = json_decode($string, true);
+        $data = $data['data'];
       }
 
       return [
