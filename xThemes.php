@@ -2,8 +2,8 @@
 /**
  * @name    Themes
  * @desc    Change the theme of your site
- * @version v0.0
- * @author  @xopherdeep
+    * @version v0.1(160710)
+    * @author  @xopherdeep
  * @icon    cloud-download-icon.png
  * @mini    moon-o
  * @see     construct
